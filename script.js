@@ -30,7 +30,7 @@ async function geoFindMe() {
     // console.log(latitude, longitude);
     location = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
     coord = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
-    
+    socket.send(location);
     outputGeoToScreen(location, 'client');
   }
 
