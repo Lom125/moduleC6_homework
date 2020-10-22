@@ -1,0 +1,58 @@
+
+.wrap {
+	border: 1pc 'gray';
+	height: 470px; 
+	width: 500px; 
+	box-shadow: 5px 5px 5px 3px rgba(0,0,0,0.5);
+}
+
+
+.form {
+	width: 500px;
+	height: 60px;
+}
+
+.input, .client, .server {
+	margin: 5px 0 5px 10px;
+	min-height: 45px;
+	border: 2px solid #c1c1c1;
+	border-radius: 4px;
+}
+
+.input {
+	width: 200px;
+	
+}
+
+.btn, .geo {
+	width: 125px;
+	height: 30px;
+	background: #595;
+	color: white;
+	margin-top: 5px;
+	/*text-transform: uppercase;*/
+	text-align: center;
+	border-radius: 10px;
+}
+
+.chat {
+	height: 400px; /* высота нашего блока */
+	width: 500px; /* ширина нашего блока */
+	background: #fff; /* цвет фона, белый */
+	border: 1px solid #C1C1C1; /* размер и цвет границы блока */
+	overflow-y: scroll; /* прокрутка по вертикали */
+}
+
+.client, .server {
+	width: 280px;
+}
+
+.client {
+	margin-left: 190px;
+}
+
+.server {
+	margin-left: 10px;
+}
+
+
