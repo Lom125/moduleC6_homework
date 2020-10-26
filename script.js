@@ -5,6 +5,7 @@ const geo = document.querySelector('.geo');
 const chat = document.querySelector('.chat');
 
 let socket;
+let triggerGeo = false;
     
 socket = new WebSocket(wsUrl);
 socket.onopen = function(evt) {
@@ -16,7 +17,7 @@ geo.addEventListener('click', geoFindMe);
 
 async function geoFindMe() {
   let  location, coord = '';
-
+  triggerGeo = true;
   if(!navigator.geolocation) {
     location = 'Geolocation is not supported by your browser';
     alert(location);
@@ -32,6 +33,7 @@ async function geoFindMe() {
     coord = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
     socket.send(location);
     outputGeoToScreen(location, 'client');
+  
   }
 
   function error() {
@@ -44,14 +46,14 @@ function sendMessage() {
 	const input = document.querySelector('.input').value;
 	const output = '';
 	outputToScreen(input, 'client');
-
+    triggerGeo = false;
   	socket.onclose = function(evt) {
     console.log("DISCONNECTED");
   };
   	socket.onmessage =  function(evt) {
     const output =  evt.data;
-    // console.log("message", output);
-    outputToScreen(output, 'server');
+    console.log(triggerGeo);
+    if (!triggerGeo) outputToScreen(output, 'server');
   };
   	socket.onerror = function(evt) {
     const output = 'ERROR: ' + evt.data;
